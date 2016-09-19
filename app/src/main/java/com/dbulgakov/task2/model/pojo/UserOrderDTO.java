@@ -38,7 +38,7 @@ public class UserOrderDTO {
     private String destination;
     @SerializedName("user_cancel")
     @Expose
-    private Boolean userCancel;
+    private boolean userCancel;
 
     public Date getOrderDate() {
         return orderDate;

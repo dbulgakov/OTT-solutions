@@ -1,4 +1,4 @@
-package com.dbulgakov.task2.view;
+package com.dbulgakov.task2.view.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
