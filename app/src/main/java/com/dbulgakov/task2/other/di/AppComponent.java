@@ -1,6 +1,6 @@
 package com.dbulgakov.task2.other.di;
 
-import com.dbulgakov.task2.model.api.ModelImpl;
+import com.dbulgakov.task2.model.ModelImpl;
 import com.dbulgakov.task2.presenter.BasePresenter;
 import javax.inject.Singleton;
 import dagger.Component;

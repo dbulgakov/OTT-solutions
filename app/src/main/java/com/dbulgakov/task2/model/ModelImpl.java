@@ -1,4 +1,4 @@
-package com.dbulgakov.task2.model.api;
+package com.dbulgakov.task2.model;
 
 import com.dbulgakov.task2.model.Model;
 
