@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.Date;
 
 
-public class UserOrderDTO {
+public class UserOrder {
 
     @SerializedName("order_date")
     @Expose

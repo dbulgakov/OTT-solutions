@@ -1,9 +1,8 @@
 package com.dbulgakov.task2.view.fragments;
 
-import com.dbulgakov.task2.model.pojo.UserOrderDTO;
+import com.dbulgakov.task2.model.pojo.UserOrder;
 import com.dbulgakov.task2.presenter.ActiveOrdersPresenter;
 import com.dbulgakov.task2.presenter.Presenter;
-import android.support.design.widget.Snackbar;
 
 import java.util.List;
 
@@ -16,7 +15,7 @@ public class ActiveOrdersFragment extends BaseFragment implements ActiveOrdersVi
     ActiveOrdersPresenter presenter;
 
     @Override
-    public void showActiveOrders(List<UserOrderDTO> orderList) {
+    public void showActiveOrders(List<UserOrder> orderList) {
 
     }
 

@@ -1,11 +1,11 @@
 package com.dbulgakov.task2.model;
 
-import com.dbulgakov.task2.model.pojo.UserOrderDTO;
+import com.dbulgakov.task2.model.pojo.UserOrder;
 
 import java.util.List;
 
 import rx.Observable;
 
 public interface Model {
-    Observable<List<UserOrderDTO>> getUserOrders();
+    Observable<List<UserOrder>> getUserOrders();
 }

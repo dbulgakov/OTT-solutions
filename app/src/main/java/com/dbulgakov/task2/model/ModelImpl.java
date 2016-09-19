@@ -1,7 +1,7 @@
 package com.dbulgakov.task2.model;
 
 import com.dbulgakov.task2.model.api.ApiInterface;
-import com.dbulgakov.task2.model.pojo.UserOrderDTO;
+import com.dbulgakov.task2.model.pojo.UserOrder;
 import com.dbulgakov.task2.other.App;
 import com.dbulgakov.task2.other.Const;
 
@@ -35,7 +35,7 @@ public class ModelImpl implements Model{
     }
 
     @Override
-    public Observable<List<UserOrderDTO>> getUserOrders() {
+    public Observable<List<UserOrder>> getUserOrders() {
         return apiInterface
                 .getUserOrders()
                 .compose(applySchedulers());
