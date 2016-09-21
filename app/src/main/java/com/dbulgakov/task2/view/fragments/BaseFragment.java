@@ -1,6 +1,7 @@
 package com.dbulgakov.task2.view.fragments;
 
-import android.app.Fragment;
+
+import android.support.v4.app.Fragment;
 
 import com.dbulgakov.task2.presenter.Presenter;
 
