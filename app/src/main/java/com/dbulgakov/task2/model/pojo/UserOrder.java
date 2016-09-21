@@ -20,10 +20,10 @@ public class UserOrder {
     private Date arrivalAt;
     @SerializedName("stop_number")
     @Expose
-    private Integer stopNumber;
-    @SerializedName("stop_duration")
+    private int stopNumber;
+    @SerializedName("flight_duration")
     @Expose
-    private int stopDuration;
+    private Date flightDuration;
     @SerializedName("airline")
     @Expose
     private String airline;
@@ -64,20 +64,20 @@ public class UserOrder {
         this.arrivalAt = arrivalAt;
     }
 
-    public Integer getStopNumber() {
+    public int getStopNumber() {
         return stopNumber;
     }
 
-    public void setStopNumber(Integer stopNumber) {
+    public void setStopNumber(int stopNumber) {
         this.stopNumber = stopNumber;
     }
 
-    public Integer getStopDuration() {
-        return stopDuration;
+    public Date getFlightDuration() {
+        return flightDuration;
     }
 
-    public void setStopDuration(Integer stopDuration) {
-        this.stopDuration = stopDuration;
+    public void setFlightDuration(Date flightDuration) {
+        this.flightDuration = flightDuration;
     }
 
     public String getAirline() {
@@ -88,11 +88,11 @@ public class UserOrder {
         this.airline = airline;
     }
 
-    public Integer getFlightNumber() {
+    public int getFlightNumber() {
         return flightNumber;
     }
 
-    public void setFlightNumber(Integer flightNumber) {
+    public void setFlightNumber(int flightNumber) {
         this.flightNumber = flightNumber;
     }
 

@@ -29,7 +29,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/order_direction_text_view"
+                android:id="@+id/order_trip_direction_text_view"
                 android:paddingRight="5dp"
                 android:paddingEnd="5dp"
                 android:paddingStart="5dp"
@@ -81,7 +81,7 @@
                 android:layout_height="match_parent" />
 
             <TextView
-                android:id="@+id/order_flight_tranfser_number_text_view"
+                android:id="@+id/order_flight_stop_number_text_view"
                 android:drawableStart="@drawable/ic_swap_horiz_black"
                 android:drawableLeft="@drawable/ic_swap_horiz_black"
                 android:paddingLeft="20dp"
