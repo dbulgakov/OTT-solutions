@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_margin="@dimen/order_item_layout_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/order_date_text_view"
+            tools:text="22/10/2016"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textColor="@android:color/darker_gray"
+            android:textStyle="italic"
+            android:layout_width="match_parent"
+            android:layout_height="0dp" />
+
+        <LinearLayout
+            android:paddingTop="5dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/order_direction_text_view"
+                android:paddingRight="5dp"
+                android:paddingEnd="5dp"
+                android:paddingStart="5dp"
+                tools:text="MOW - IEV"
+                android:gravity="center_vertical|end"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="24sp"/>
+
+            <TextView
+                android:id="@+id/order_flight_number_text_view"
+                android:paddingLeft="5dp"
+                android:paddingEnd="5dp"
+                android:paddingStart="5dp"
+                tools:text="S7 - 495"
+                android:gravity="center_vertical|start"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="24sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/order_item_layout_margin"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/order_flight_takeoff_time_text_view"
+                android:drawableStart="@drawable/ic_flight_takeoff_black"
+                android:drawableLeft="@drawable/ic_flight_takeoff_black"
+                android:drawablePadding="@dimen/order_item_text_drawable_padding"
+                tools:text="20:30"
+                android:gravity="center_vertical|start"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/order_flight_duration_time_text_view"
+                tools:text="2:40"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/order_flight_tranfser_number_text_view"
+                android:drawableStart="@drawable/ic_swap_horiz_black"
+                android:drawableLeft="@drawable/ic_swap_horiz_black"
+                android:paddingLeft="20dp"
+                android:paddingStart="20dp"
+                android:paddingRight="5dp"
+                android:paddingEnd="5dp"
+                tools:text="4"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/order_flight_landing_time_text_view"
+                android:drawableEnd="@drawable/ic_flight_land_black"
+                android:drawableRight="@drawable/ic_flight_land_black"
+                android:drawablePadding="@dimen/order_item_text_drawable_padding"
+                tools:text="23:10"
+                android:gravity="center_vertical|end"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+    </LinearLayout>
+</android.support.v7.widget.CardView>
