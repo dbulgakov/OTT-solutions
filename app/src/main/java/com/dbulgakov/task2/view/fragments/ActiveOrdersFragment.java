@@ -40,6 +40,6 @@ public class ActiveOrdersFragment extends BaseFragment implements ActiveOrdersVi
     @Override
     public android.view.View onCreateView(LayoutInflater inflater, ViewGroup container,
                                           Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.dummy_fragment, container, false);
+        return inflater.inflate(R.layout.fragment_order, container, false);
     }
 }
