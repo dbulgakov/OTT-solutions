@@ -8,6 +8,8 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.*;
 import android.view.View;
+import android.widget.TextView;
+
 import com.dbulgakov.task2.R;
 import com.dbulgakov.task2.model.pojo.UserOrder;
 import com.dbulgakov.task2.other.App;
@@ -31,6 +33,9 @@ public class ActiveOrdersFragment extends BaseFragment implements ActiveOrdersVi
     @BindView(R.id.orders_recycler_view)
     RecyclerView ordersRecyclerView;
 
+    @BindView(R.id.no_data_text_view)
+    TextView noDataTextView;
+
     @Inject
     ActiveOrdersPresenter presenter;
 
@@ -39,7 +44,12 @@ public class ActiveOrdersFragment extends BaseFragment implements ActiveOrdersVi
 
     @Override
     public void showActiveOrders(List<UserOrder> orderList) {
-        orderListAdapter.setUserOrderList(orderList);
+        if (orderList.size() > 0) {
+            orderListAdapter.setUserOrderList(orderList);
+            ordersRecyclerView.setVisibility(View.VISIBLE);
+        } else {
+            ordersRecyclerView.setVisibility(View.INVISIBLE);
+        }
     }
 
     @Override
@@ -77,7 +87,7 @@ public class ActiveOrdersFragment extends BaseFragment implements ActiveOrdersVi
 
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         ordersRecyclerView.setLayoutManager(llm);
-        orderListAdapter = new OrderListAdapter(new ArrayList<UserOrder>(), presenter);
+        orderListAdapter = new OrderListAdapter(new ArrayList<>(), presenter);
         ordersRecyclerView.setAdapter(orderListAdapter);
         return view;
     }

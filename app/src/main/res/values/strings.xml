@@ -2,4 +2,5 @@
     <string name="app_name">Your orders</string>
     <string name="active_orders_tab_name_string">Active orders</string>
     <string name="archive_orders_tab_name_string">Archive</string>
+    <string name="orders_recyclerview_no_data_message_text">No data available</string>
 </resources>
