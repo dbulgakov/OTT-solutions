@@ -39,7 +39,7 @@ public class ActiveOrdersPresenter extends BasePresenter{
 
                     @Override
                     public void onError(Throwable e) {
-                        activeOrdersView.showError(e.getMessage());
+                        activeOrdersView.showError(e);
                     }
 
                     @Override

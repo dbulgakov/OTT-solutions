@@ -20,6 +20,8 @@ import com.dbulgakov.task2.other.di.view.ViewDynamicModule;
 import com.dbulgakov.task2.presenter.ActiveOrdersPresenter;
 import com.dbulgakov.task2.presenter.Presenter;
 import com.dbulgakov.task2.view.adapters.OrderListAdapter;
+
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,8 +55,11 @@ public class ActiveOrdersFragment extends BaseFragment implements ActiveOrdersVi
     }
 
     @Override
-    public void showError(String error) {
-        makeToast(error);
+    public void showError(Throwable throwable) {
+        if (throwable instanceof UnknownHostException) {
+            makeToast(getString(R.string.error_no_internet_message));
+        } else
+            makeToast(getString(R.string.error_unknown_error_message));
     }
 
     private void makeToast(String text) {
