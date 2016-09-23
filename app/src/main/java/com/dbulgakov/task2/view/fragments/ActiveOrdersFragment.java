@@ -5,15 +5,12 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.*;
 import android.view.View;
 import android.widget.TextView;
 
 import com.dbulgakov.task2.R;
 import com.dbulgakov.task2.model.pojo.UserOrder;
-import com.dbulgakov.task2.other.App;
-import com.dbulgakov.task2.other.di.DaggerAppComponent;
 import com.dbulgakov.task2.other.di.view.DaggerViewComponent;
 import com.dbulgakov.task2.other.di.view.ViewComponent;
 import com.dbulgakov.task2.other.di.view.ViewDynamicModule;
@@ -45,9 +42,22 @@ public class ActiveOrdersFragment extends BaseFragment implements ActiveOrdersVi
     private ViewComponent viewComponent;
 
     @Override
+    public void setOrderList(List<UserOrder> userOrderList) {
+        if (userOrderList != null) {
+            orderListAdapter.setUserOrderList(userOrderList);
+        }
+    }
+
+    @Override
     public void addOrderToList(UserOrder userOrder) {
         orderListAdapter.addUserOrder(userOrder);
     }
+
+    @Override
+    public List<UserOrder> getCurrentUserOrderList() {
+        return orderListAdapter.getUserOrderList();
+    }
+
 
     @Override
     protected Presenter getPresenter() {
@@ -75,7 +85,7 @@ public class ActiveOrdersFragment extends BaseFragment implements ActiveOrdersVi
                     .build();
         }
         viewComponent.inject(this);
-        presenter.getActiveOrders();
+        //presenter.getActiveOrders();
     }
 
     @Nullable
@@ -89,6 +99,14 @@ public class ActiveOrdersFragment extends BaseFragment implements ActiveOrdersVi
         ordersRecyclerView.setLayoutManager(llm);
         orderListAdapter = new OrderListAdapter(new ArrayList<>(), presenter);
         ordersRecyclerView.setAdapter(orderListAdapter);
+
+        presenter.getActiveOrders(savedInstanceState);
         return view;
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        presenter.onSaveInstanceState(outState);
     }
 }

@@ -1,14 +1,15 @@
 package com.dbulgakov.task2.presenter;
 
+import android.os.Bundle;
+
 import com.dbulgakov.task2.model.pojo.UserOrder;
 import com.dbulgakov.task2.other.App;
 import com.dbulgakov.task2.view.fragments.ActiveOrdersView;
-
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
-
 import rx.Observable;
 import rx.Observer;
 import rx.Subscription;
@@ -16,6 +17,7 @@ import rx.Subscription;
 public class ActiveOrdersPresenter extends BasePresenter{
 
     private ActiveOrdersView activeOrdersView;
+    private static final String SAVED_USER_ORDERS_KEY = "SAVED_ORDERS_KEY";
 
     @Inject
     public ActiveOrdersPresenter() {
@@ -27,7 +29,7 @@ public class ActiveOrdersPresenter extends BasePresenter{
         this.activeOrdersView = activeOrdersView;
     }
 
-    public void getActiveOrders(){
+    private void getActiveOrdersFromBackend(){
         Date today = new Date();
         Subscription subscription = model.getUserOrders()
                 .flatMap(Observable::from)
@@ -48,5 +50,21 @@ public class ActiveOrdersPresenter extends BasePresenter{
                     }
                 });
         addSubscription(subscription);
+    }
+
+    public void onSaveInstanceState(Bundle outState){
+        List<UserOrder> userOrderList = activeOrdersView.getCurrentUserOrderList();
+        if (userOrderList != null && userOrderList.size() > 0) {
+            outState.putSerializable(SAVED_USER_ORDERS_KEY, new ArrayList<>(userOrderList));
+        }
+    }
+
+    public void getActiveOrders(Bundle savedInstanceState) {
+        if (savedInstanceState != null) {
+            List<UserOrder> userOrderList= (List<UserOrder>) savedInstanceState.getSerializable(SAVED_USER_ORDERS_KEY);
+            activeOrdersView.setOrderList(userOrderList);
+        } else {
+            getActiveOrdersFromBackend();
+        }
     }
 }

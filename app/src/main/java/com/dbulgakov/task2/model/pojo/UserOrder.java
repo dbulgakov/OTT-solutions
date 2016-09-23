@@ -4,10 +4,11 @@ package com.dbulgakov.task2.model.pojo;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.Date;
 
 
-public class UserOrder {
+public class UserOrder implements Serializable{
 
     @SerializedName("order_date")
     @Expose
@@ -119,5 +120,4 @@ public class UserOrder {
     public void setUserCancel(boolean userCancel) {
         this.userCancel = userCancel;
     }
-
 }

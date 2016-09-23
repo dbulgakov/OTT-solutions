@@ -43,6 +43,10 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
         return userOrderList.size();
     }
 
+    public List<UserOrder> getUserOrderList() {
+        return userOrderList;
+    }
+
     public void addUserOrder(UserOrder userOrder) {
         userOrderList.add(userOrder);
         notifyDataSetChanged();
