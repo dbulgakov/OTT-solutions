@@ -1,6 +1,7 @@
 package com.dbulgakov.task2.other;
 
 import android.app.Application;
+import android.util.Log;
 
 import com.dbulgakov.task2.other.di.AppComponent;
 import com.dbulgakov.task2.other.di.DaggerAppComponent;

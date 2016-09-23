@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Locale;
 
 
-class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.ViewHolder>{
+public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.ViewHolder>{
 
     private BasePresenter presenter;
     private List<UserOrder> userOrderList;
@@ -58,7 +58,7 @@ class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.ViewHolder>
         holder.flightNumberTextView.setText(userOrder.getFlightNumber());
         holder.flightTakeoffTextView.setText(fullDate.format(userOrder.getDepartureAt()));
         holder.flightArrivalTextView.setText(fullDate.format(userOrder.getArrivalAt()));
-        holder.flightDurationTextView.setText(onlyTime.format(userOrder.getFlightDuration()));
+        holder.flightDurationTextView.setText(String.format(Locale.getDefault(), "%f", userOrder.getFlightDuration()));
         holder.flightStopNumberTextView.setText(userOrder.getStopNumber());
     }
 

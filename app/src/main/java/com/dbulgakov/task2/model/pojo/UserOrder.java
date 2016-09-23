@@ -23,7 +23,7 @@ public class UserOrder {
     private int stopNumber;
     @SerializedName("flight_duration")
     @Expose
-    private Date flightDuration;
+    private double flightDuration;
     @SerializedName("airline")
     @Expose
     private String airline;
@@ -72,11 +72,11 @@ public class UserOrder {
         this.stopNumber = stopNumber;
     }
 
-    public Date getFlightDuration() {
+    public double getFlightDuration() {
         return flightDuration;
     }
 
-    public void setFlightDuration(Date flightDuration) {
+    public void setFlightDuration(double flightDuration) {
         this.flightDuration = flightDuration;
     }
 
