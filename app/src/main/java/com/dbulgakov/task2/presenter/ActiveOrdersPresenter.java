@@ -1,15 +1,15 @@
 package com.dbulgakov.task2.presenter;
 
-import android.util.Log;
-
 import com.dbulgakov.task2.model.pojo.UserOrder;
 import com.dbulgakov.task2.other.App;
 import com.dbulgakov.task2.view.fragments.ActiveOrdersView;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
 
+import rx.Observable;
 import rx.Observer;
 import rx.Subscription;
 
@@ -28,8 +28,11 @@ public class ActiveOrdersPresenter extends BasePresenter{
     }
 
     public void getActiveOrders(){
+        Date today = new Date();
         Subscription subscription = model.getUserOrders()
-                .subscribe(new Observer<List<UserOrder>>() {
+                .flatMap(Observable::from)
+                .filter(order -> order.getArrivalAt().after(today))
+                .subscribe(new Observer<UserOrder>() {
                     @Override
                     public void onCompleted() {
                     }
@@ -40,12 +43,8 @@ public class ActiveOrdersPresenter extends BasePresenter{
                     }
 
                     @Override
-                    public void onNext(List<UserOrder> list) {
-                        if (list != null && !list.isEmpty()) {
-                            activeOrdersView.showActiveOrders(list);
-                        } else {
-                            //activeOrdersView.showEmptyList();
-                        }
+                    public void onNext(UserOrder userOrder) {
+                        activeOrdersView.addOrderToList(userOrder);
                     }
                 });
         addSubscription(subscription);

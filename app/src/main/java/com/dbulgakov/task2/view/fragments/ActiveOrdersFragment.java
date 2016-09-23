@@ -43,13 +43,8 @@ public class ActiveOrdersFragment extends BaseFragment implements ActiveOrdersVi
     private ViewComponent viewComponent;
 
     @Override
-    public void showActiveOrders(List<UserOrder> orderList) {
-        if (orderList.size() > 0) {
-            orderListAdapter.setUserOrderList(orderList);
-            ordersRecyclerView.setVisibility(View.VISIBLE);
-        } else {
-            ordersRecyclerView.setVisibility(View.INVISIBLE);
-        }
+    public void addOrderToList(UserOrder userOrder) {
+        orderListAdapter.addUserOrder(userOrder);
     }
 
     @Override

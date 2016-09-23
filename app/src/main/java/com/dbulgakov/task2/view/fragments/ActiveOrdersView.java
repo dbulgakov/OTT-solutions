@@ -5,5 +5,5 @@ import com.dbulgakov.task2.model.pojo.UserOrder;
 import java.util.List;
 
 public interface ActiveOrdersView extends View{
-    void showActiveOrders(List<UserOrder> orderList);
+    void addOrderToList(UserOrder userOrder);
 }
