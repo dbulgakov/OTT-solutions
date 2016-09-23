@@ -1,5 +1,6 @@
 package com.dbulgakov.task2.view.adapters;
 
+import android.icu.text.DecimalFormat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,7 +26,6 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
     }
 
 
-
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.order_item, viewGroup, false);
@@ -49,17 +49,16 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
     }
 
     private void setOrderInfoIntoTextViews(UserOrder userOrder, ViewHolder holder) {
-        DateFormat onlyTime = new SimpleDateFormat("HH:mm", Locale.getDefault());
         DateFormat shortDate = new SimpleDateFormat("MM/dd/yyyy", Locale.getDefault());
-        DateFormat fullDate = new SimpleDateFormat("MM/dd/yyyy HH:mm", Locale.getDefault());
+        DateFormat fullDate = new SimpleDateFormat("MM/dd/yy HH:mm", Locale.getDefault());
 
         holder.orderDateTextView.setText(shortDate.format(userOrder.getOrderDate()));
         holder.tripDirectionTextView.setText(String.format("%s - %s", userOrder.getOrigin(), userOrder.getDestination()));
         holder.flightNumberTextView.setText(userOrder.getFlightNumber());
         holder.flightTakeoffTextView.setText(fullDate.format(userOrder.getDepartureAt()));
         holder.flightArrivalTextView.setText(fullDate.format(userOrder.getArrivalAt()));
-        holder.flightDurationTextView.setText(String.format(Locale.getDefault(), "%f", userOrder.getFlightDuration()));
-        holder.flightStopNumberTextView.setText(userOrder.getStopNumber());
+        holder.flightDurationTextView.setText(userOrder.getFlightDuration());
+        holder.flightStopNumberTextView.setText(String.format(Locale.getDefault(), "%d", userOrder.getStopNumber()));
     }
 
 

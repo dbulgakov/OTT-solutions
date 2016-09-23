@@ -3,6 +3,7 @@ package com.dbulgakov.task2.view.fragments;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.*;
@@ -38,7 +39,7 @@ public class ActiveOrdersFragment extends BaseFragment implements ActiveOrdersVi
 
     @Override
     public void showActiveOrders(List<UserOrder> orderList) {
-
+        orderListAdapter.setUserOrderList(orderList);
     }
 
     @Override
@@ -74,6 +75,8 @@ public class ActiveOrdersFragment extends BaseFragment implements ActiveOrdersVi
 
         ButterKnife.bind(this, view);
 
+        LinearLayoutManager llm = new LinearLayoutManager(getContext());
+        ordersRecyclerView.setLayoutManager(llm);
         orderListAdapter = new OrderListAdapter(new ArrayList<UserOrder>(), presenter);
         ordersRecyclerView.setAdapter(orderListAdapter);
         return view;

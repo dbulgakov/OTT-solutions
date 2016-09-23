@@ -23,13 +23,13 @@ public class UserOrder {
     private int stopNumber;
     @SerializedName("flight_duration")
     @Expose
-    private double flightDuration;
+    private String flightDuration;
     @SerializedName("airline")
     @Expose
     private String airline;
     @SerializedName("flight_number")
     @Expose
-    private int flightNumber;
+    private String flightNumber;
     @SerializedName("origin")
     @Expose
     private String origin;
@@ -72,11 +72,11 @@ public class UserOrder {
         this.stopNumber = stopNumber;
     }
 
-    public double getFlightDuration() {
+    public String getFlightDuration() {
         return flightDuration;
     }
 
-    public void setFlightDuration(double flightDuration) {
+    public void setFlightDuration(String flightDuration) {
         this.flightDuration = flightDuration;
     }
 
@@ -88,11 +88,11 @@ public class UserOrder {
         this.airline = airline;
     }
 
-    public int getFlightNumber() {
+    public String getFlightNumber() {
         return flightNumber;
     }
 
-    public void setFlightNumber(int flightNumber) {
+    public void setFlightNumber(String flightNumber) {
         this.flightNumber = flightNumber;
     }
 
