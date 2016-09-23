@@ -64,7 +64,6 @@ public class ActiveOrdersFragment extends BaseFragment implements ActiveOrdersVi
                     .build();
         }
         viewComponent.inject(this);
-        presenter = new ActiveOrdersPresenter();
         presenter.getActiveOrders();
     }
 
