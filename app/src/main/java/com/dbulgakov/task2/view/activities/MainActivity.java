@@ -7,8 +7,6 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
 import com.dbulgakov.task2.R;
-import com.dbulgakov.task2.other.di.view.DaggerViewComponent;
-import com.dbulgakov.task2.other.di.view.ViewDynamicModule;
 import com.dbulgakov.task2.view.adapters.ViewPagerAdapter;
 import com.dbulgakov.task2.view.fragments.ActiveOrdersFragment;
 

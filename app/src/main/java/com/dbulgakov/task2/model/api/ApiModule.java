@@ -17,7 +17,7 @@ public final class ApiModule {
 
     }
 
-    public static ApiInterface getApiInterface(String url) {
+    public static ApiInterface getApiInterface() {
 
         File cacheDir = new File(App.getContext().getCacheDir(), UUID.randomUUID().toString());
         Cache cache = new Cache(cacheDir, 1024);
@@ -25,7 +25,7 @@ public final class ApiModule {
 
 
         Retrofit.Builder builder = new Retrofit.Builder().
-                baseUrl(url)
+                baseUrl(com.dbulgakov.task2.other.Const.BASE_URL)
                 .client(okHttpClient)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create());

@@ -1,6 +1,5 @@
 package com.dbulgakov.task2.view.adapters;
 
-import android.icu.text.DecimalFormat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,7 +16,7 @@ import java.util.Locale;
 
 public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.ViewHolder>{
 
-    private BasePresenter presenter;
+    private final BasePresenter presenter;
     private List<UserOrder> userOrderList;
 
     public OrderListAdapter(List<UserOrder> orderList, BasePresenter presenter) {
@@ -78,13 +77,13 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView orderDateTextView;
-        TextView tripDirectionTextView;
-        TextView flightNumberTextView;
-        TextView flightTakeoffTextView;
-        TextView flightArrivalTextView;
-        TextView flightDurationTextView;
-        TextView flightStopNumberTextView;
+        final TextView orderDateTextView;
+        final TextView tripDirectionTextView;
+        final TextView flightNumberTextView;
+        final TextView flightTakeoffTextView;
+        final TextView flightArrivalTextView;
+        final TextView flightDurationTextView;
+        final TextView flightStopNumberTextView;
 
         ViewHolder(View v) {
             super(v);

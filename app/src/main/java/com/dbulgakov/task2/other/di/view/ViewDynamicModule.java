@@ -8,7 +8,7 @@ import dagger.Provides;
 
 @Module
 public class ViewDynamicModule {
-    private ActiveOrdersView view;
+    private final ActiveOrdersView view;
 
     public ViewDynamicModule(ActiveOrdersView view) {
         this.view = view;

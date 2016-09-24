@@ -18,7 +18,7 @@ public class ModelModule {
     @Provides
     @Singleton
     ApiInterface provideApiInterface() {
-        return ApiModule.getApiInterface(Const.BASE_URL);
+        return ApiModule.getApiInterface();
     }
 
     @Provides

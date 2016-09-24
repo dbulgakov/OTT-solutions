@@ -6,10 +6,8 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.*;
 import android.view.View;
-import android.widget.TextView;
 
 import com.dbulgakov.task2.R;
 import com.dbulgakov.task2.model.pojo.UserOrder;
