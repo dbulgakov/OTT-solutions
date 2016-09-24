@@ -13,8 +13,11 @@ import java.util.List;
 import com.google.common.base.Predicate;
 
 import javax.inject.Inject;
+import javax.inject.Named;
+
 import rx.Observable;
 import rx.Observer;
+import rx.Scheduler;
 import rx.Subscription;
 
 public class OrdersPresenter extends BasePresenter{
@@ -22,6 +25,14 @@ public class OrdersPresenter extends BasePresenter{
     private OrdersView ordersView;
     private static final String SAVED_USER_ORDERS_KEY = "SAVED_USER_ORDERS_KEY";
     private Predicate<UserOrder> userOrderPredicate;
+
+    @Inject
+    @Named(Const.UI_THREAD)
+    Scheduler uiThread;
+
+    @Inject
+    @Named(Const.IO_THREAD)
+    Scheduler ioThread;
 
     @Inject
     public OrdersPresenter() {
@@ -38,6 +49,8 @@ public class OrdersPresenter extends BasePresenter{
                 .flatMap(Observable::from)
                 .filter(order -> userOrderPredicate.apply(order))
                 .toSortedList((userOrder, userOrder2) -> userOrder.getDepartureAt().compareTo(userOrder2.getDepartureAt()))
+                .subscribeOn(ioThread)
+                .observeOn(uiThread)
                 .subscribe(new Observer<List<UserOrder>>() {
                     @Override
                     public void onCompleted() {
