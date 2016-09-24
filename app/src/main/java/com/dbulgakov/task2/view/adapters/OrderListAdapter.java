@@ -8,7 +8,6 @@ import android.widget.TextView;
 import com.dbulgakov.task2.R;
 import com.dbulgakov.task2.model.pojo.UserOrder;
 import com.dbulgakov.task2.other.App;
-import com.dbulgakov.task2.presenter.BasePresenter;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -17,13 +16,11 @@ import java.util.Locale;
 
 public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.ViewHolder>{
 
-    private final BasePresenter presenter;
     private List<UserOrder> userOrderList;
     private DateFormat shortDate = new SimpleDateFormat("MM/dd/yyyy", Locale.getDefault());
     private DateFormat fullDate = new SimpleDateFormat("MM/dd/yy HH:mm", Locale.getDefault());
 
-    public OrderListAdapter(List<UserOrder> orderList, BasePresenter presenter) {
-        this.presenter = presenter;
+    public OrderListAdapter(List<UserOrder> orderList) {
         userOrderList = orderList;
     }
 

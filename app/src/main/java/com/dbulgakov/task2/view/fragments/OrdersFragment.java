@@ -6,7 +6,6 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.*;
 import android.view.View;
 
@@ -117,7 +116,7 @@ public class OrdersFragment extends BaseFragment implements OrdersView, SwipeRef
 
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         ordersRecyclerView.setLayoutManager(llm);
-        orderListAdapter = new OrderListAdapter(new ArrayList<>(), presenter);
+        orderListAdapter = new OrderListAdapter(new ArrayList<>());
         ordersRecyclerView.setAdapter(orderListAdapter);
 
         presenter.getActiveOrders(savedInstanceState);
