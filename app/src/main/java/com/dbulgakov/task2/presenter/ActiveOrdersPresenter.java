@@ -54,7 +54,7 @@ public class ActiveOrdersPresenter extends BasePresenter{
 
     public void onSaveInstanceState(Bundle outState){
         List<UserOrder> userOrderList = activeOrdersView.getCurrentUserOrderList();
-        if (userOrderList != null && userOrderList.isEmpty()) {
+        if (userOrderList != null && !userOrderList.isEmpty()) {
             outState.putSerializable(SAVED_USER_ORDERS_KEY, new ArrayList<>(userOrderList));
         }
     }
