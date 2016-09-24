@@ -4,7 +4,7 @@ import com.dbulgakov.task2.model.pojo.UserOrder;
 
 import java.util.List;
 
-public interface ActiveOrdersView extends View{
+public interface OrdersView extends View{
     void setOrderList(List<UserOrder> userOrderList);
     void addOrderToList(UserOrder userOrder);
     void clearOrderList();

@@ -14,7 +14,7 @@ import com.dbulgakov.task2.model.pojo.UserOrder;
 import com.dbulgakov.task2.other.di.view.DaggerViewComponent;
 import com.dbulgakov.task2.other.di.view.ViewComponent;
 import com.dbulgakov.task2.other.di.view.ViewDynamicModule;
-import com.dbulgakov.task2.presenter.ActiveOrdersPresenter;
+import com.dbulgakov.task2.presenter.OrdersPresenter;
 import com.dbulgakov.task2.presenter.Presenter;
 import com.dbulgakov.task2.view.adapters.OrderListAdapter;
 
@@ -27,7 +27,7 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class ActiveOrdersFragment extends BaseFragment implements ActiveOrdersView, SwipeRefreshLayout.OnRefreshListener{
+public class OrdersFragment extends BaseFragment implements OrdersView, SwipeRefreshLayout.OnRefreshListener{
 
     @BindView(R.id.orders_recycler_view)
     RecyclerView ordersRecyclerView;
@@ -36,7 +36,7 @@ public class ActiveOrdersFragment extends BaseFragment implements ActiveOrdersVi
     SwipeRefreshLayout swipeRefreshLayout;
 
     @Inject
-    ActiveOrdersPresenter presenter;
+    OrdersPresenter presenter;
 
     private OrderListAdapter orderListAdapter;
     private ViewComponent viewComponent;

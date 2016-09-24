@@ -8,7 +8,7 @@ import android.support.v7.widget.Toolbar;
 
 import com.dbulgakov.task2.R;
 import com.dbulgakov.task2.view.adapters.ViewPagerAdapter;
-import com.dbulgakov.task2.view.fragments.ActiveOrdersFragment;
+import com.dbulgakov.task2.view.fragments.OrdersFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,8 +37,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void initializeViewPager() {
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
-        viewPagerAdapter.addFragment(new ActiveOrdersFragment(), getString(R.string.active_orders_tab_name_string));
-        viewPagerAdapter.addFragment(new ActiveOrdersFragment(), getString(R.string.archive_orders_tab_name_string));
+        viewPagerAdapter.addFragment(new OrdersFragment(), getString(R.string.active_orders_tab_name_string));
+        viewPagerAdapter.addFragment(new OrdersFragment(), getString(R.string.archive_orders_tab_name_string));
         fragmentViewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(fragmentViewPager);
     }

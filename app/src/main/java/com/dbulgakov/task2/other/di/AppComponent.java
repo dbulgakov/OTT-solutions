@@ -1,9 +1,9 @@
 package com.dbulgakov.task2.other.di;
 
 import com.dbulgakov.task2.model.ModelImpl;
-import com.dbulgakov.task2.presenter.ActiveOrdersPresenter;
+import com.dbulgakov.task2.presenter.OrdersPresenter;
 import com.dbulgakov.task2.presenter.BasePresenter;
-import com.dbulgakov.task2.view.fragments.ActiveOrdersFragment;
+import com.dbulgakov.task2.view.fragments.OrdersFragment;
 
 import javax.inject.Singleton;
 import dagger.Component;
@@ -17,7 +17,7 @@ public interface AppComponent {
 
     void inject(BasePresenter basePresenter);
 
-    void inject(ActiveOrdersPresenter activeOrdersPresenter);
+    void inject(OrdersPresenter ordersPresenter);
 
-    void inject(ActiveOrdersFragment activeOrdersFragment);
+    void inject(OrdersFragment activeOrdersFragment);
 }

@@ -1,21 +1,21 @@
 package com.dbulgakov.task2.other.di.view;
 
-import com.dbulgakov.task2.presenter.ActiveOrdersPresenter;
-import com.dbulgakov.task2.view.fragments.ActiveOrdersView;
+import com.dbulgakov.task2.presenter.OrdersPresenter;
+import com.dbulgakov.task2.view.fragments.OrdersView;
 
 import dagger.Module;
 import dagger.Provides;
 
 @Module
 public class ViewDynamicModule {
-    private final ActiveOrdersView view;
+    private final OrdersView view;
 
-    public ViewDynamicModule(ActiveOrdersView view) {
+    public ViewDynamicModule(OrdersView view) {
         this.view = view;
     }
 
     @Provides
-    ActiveOrdersPresenter provideRepoListPresenter() {
-        return new ActiveOrdersPresenter(view);
+    OrdersPresenter provideRepoListPresenter() {
+        return new OrdersPresenter(view);
     }
 }
