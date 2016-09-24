@@ -57,6 +57,11 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
         notifyDataSetChanged();
     }
 
+    public void clearData() {
+        userOrderList.clear();
+        notifyDataSetChanged();
+    }
+
     private void setOrderInfoIntoTextViews(UserOrder userOrder, ViewHolder holder) {
         DateFormat shortDate = new SimpleDateFormat("MM/dd/yyyy", Locale.getDefault());
         DateFormat fullDate = new SimpleDateFormat("MM/dd/yy HH:mm", Locale.getDefault());

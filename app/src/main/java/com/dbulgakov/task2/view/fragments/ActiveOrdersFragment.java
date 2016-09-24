@@ -3,6 +3,7 @@ package com.dbulgakov.task2.view.fragments;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.*;
@@ -27,13 +28,13 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class ActiveOrdersFragment extends BaseFragment implements ActiveOrdersView{
+public class ActiveOrdersFragment extends BaseFragment implements ActiveOrdersView, SwipeRefreshLayout.OnRefreshListener{
 
     @BindView(R.id.orders_recycler_view)
     RecyclerView ordersRecyclerView;
 
-    @BindView(R.id.no_data_text_view)
-    TextView noDataTextView;
+    @BindView(R.id.swipe_refresh_layout)
+    SwipeRefreshLayout swipeRefreshLayout;
 
     @Inject
     ActiveOrdersPresenter presenter;
@@ -46,11 +47,28 @@ public class ActiveOrdersFragment extends BaseFragment implements ActiveOrdersVi
         if (userOrderList != null) {
             orderListAdapter.setUserOrderList(userOrderList);
         }
+        stopSwipeRefreshing();
     }
 
     @Override
     public void addOrderToList(UserOrder userOrder) {
         orderListAdapter.addUserOrder(userOrder);
+        stopSwipeRefreshing();
+    }
+
+    @Override
+    public void clearOrderList() {
+        orderListAdapter.clearData();
+    }
+
+    @Override
+    public void startSwipeRefreshing() {
+        swipeRefreshLayout.setRefreshing(true);
+    }
+
+    @Override
+    public void stopSwipeRefreshing() {
+        swipeRefreshLayout.setRefreshing(false);
     }
 
     @Override
@@ -85,7 +103,6 @@ public class ActiveOrdersFragment extends BaseFragment implements ActiveOrdersVi
                     .build();
         }
         viewComponent.inject(this);
-        //presenter.getActiveOrders();
     }
 
     @Nullable
@@ -101,6 +118,7 @@ public class ActiveOrdersFragment extends BaseFragment implements ActiveOrdersVi
         ordersRecyclerView.setAdapter(orderListAdapter);
 
         presenter.getActiveOrders(savedInstanceState);
+        swipeRefreshLayout.setOnRefreshListener(this);
         return view;
     }
 
@@ -108,5 +126,10 @@ public class ActiveOrdersFragment extends BaseFragment implements ActiveOrdersVi
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         presenter.onSaveInstanceState(outState);
+    }
+
+    @Override
+    public void onRefresh() {
+        presenter.getActiveOrders();
     }
 }

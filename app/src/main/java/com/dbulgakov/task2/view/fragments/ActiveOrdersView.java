@@ -7,5 +7,8 @@ import java.util.List;
 public interface ActiveOrdersView extends View{
     void setOrderList(List<UserOrder> userOrderList);
     void addOrderToList(UserOrder userOrder);
+    void clearOrderList();
+    void startSwipeRefreshing();
+    void stopSwipeRefreshing();
     List<UserOrder> getCurrentUserOrderList();
 }

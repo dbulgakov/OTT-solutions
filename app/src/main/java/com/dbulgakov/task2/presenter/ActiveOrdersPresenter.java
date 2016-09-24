@@ -60,11 +60,17 @@ public class ActiveOrdersPresenter extends BasePresenter{
     }
 
     public void getActiveOrders(Bundle savedInstanceState) {
+        activeOrdersView.startSwipeRefreshing();
         if (savedInstanceState != null) {
             List<UserOrder> userOrderList= (List<UserOrder>) savedInstanceState.getSerializable(SAVED_USER_ORDERS_KEY);
             activeOrdersView.setOrderList(userOrderList);
         } else {
+            activeOrdersView.clearOrderList();
             getActiveOrdersFromBackend();
         }
+    }
+
+    public void getActiveOrders() {
+        getActiveOrders(null);
     }
 }
