@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
 import com.dbulgakov.task2.R;
+import com.dbulgakov.task2.other.Const;
 import com.dbulgakov.task2.view.adapters.ViewPagerAdapter;
 import com.dbulgakov.task2.view.fragments.OrdersFragment;
 
@@ -37,9 +38,17 @@ public class MainActivity extends AppCompatActivity {
 
     private void initializeViewPager() {
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
-        viewPagerAdapter.addFragment(new OrdersFragment(), getString(R.string.active_orders_tab_name_string));
-        viewPagerAdapter.addFragment(new OrdersFragment(), getString(R.string.archive_orders_tab_name_string));
+        viewPagerAdapter.addFragment(initializeOrdersFragment(Const.FRAGMENT_ACTIVE), getString(R.string.active_orders_tab_name_string));
+        viewPagerAdapter.addFragment(initializeOrdersFragment(Const.FRAGMENT_ARCHIVE), getString(R.string.archive_orders_tab_name_string));
         fragmentViewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(fragmentViewPager);
+    }
+
+    private OrdersFragment initializeOrdersFragment(int fragmentType) {
+        OrdersFragment ordersFragment = new OrdersFragment();
+        Bundle args = new Bundle();
+        args.putInt(Const.FRAGMENT_KEY, fragmentType);
+        ordersFragment.setArguments(args);
+        return ordersFragment;
     }
 }

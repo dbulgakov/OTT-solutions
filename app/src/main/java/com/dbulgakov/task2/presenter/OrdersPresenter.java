@@ -3,8 +3,10 @@ package com.dbulgakov.task2.presenter;
 import android.os.Bundle;
 
 import com.dbulgakov.task2.model.pojo.UserOrder;
+import com.dbulgakov.task2.other.Const;
 import com.dbulgakov.task2.predicate.ActiveOrderPredicate;
 import com.dbulgakov.task2.other.App;
+import com.dbulgakov.task2.predicate.OtherOrdersPredicate;
 import com.dbulgakov.task2.view.fragments.OrdersView;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +31,6 @@ public class OrdersPresenter extends BasePresenter{
         super();
         App.getComponent().inject(this);
         this.ordersView = ordersView;
-        userOrderPredicate = new ActiveOrderPredicate();
     }
 
     private void getActiveOrdersFromBackend(){
@@ -66,11 +67,24 @@ public class OrdersPresenter extends BasePresenter{
     public void getActiveOrders(Bundle savedInstanceState) {
         ordersView.startSwipeRefreshing();
         if (savedInstanceState != null) {
+            @SuppressWarnings("unchecked")
             List<UserOrder> userOrderList= (List<UserOrder>) savedInstanceState.getSerializable(SAVED_USER_ORDERS_KEY);
             ordersView.setOrderList(userOrderList);
         } else {
             ordersView.clearOrderList();
             getActiveOrdersFromBackend();
+        }
+    }
+
+    public void onCreate(Bundle savedInstanceState) {
+        if (savedInstanceState != null) {
+            if (savedInstanceState.getInt(Const.FRAGMENT_KEY) == Const.FRAGMENT_ACTIVE) {
+                userOrderPredicate = new ActiveOrderPredicate();
+            } else {
+                userOrderPredicate = new OtherOrdersPredicate();
+            }
+        } else {
+            throw new IllegalStateException("Fragment type needs to be passed!");
         }
     }
 
