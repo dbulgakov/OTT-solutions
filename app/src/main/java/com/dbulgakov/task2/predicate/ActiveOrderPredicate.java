@@ -11,6 +11,6 @@ public class ActiveOrderPredicate extends BaseOrderPredicate {
 
     @Override
     public boolean apply(UserOrder userOrder) {
-        return userOrder.getArrivalAt().after(getCurrentDate()) && !userOrder.getUserCancel();
+        return userOrder.getArrivalAt().after(getCurrentDate()) && !userOrder.getIfUserCancel();
     }
 }

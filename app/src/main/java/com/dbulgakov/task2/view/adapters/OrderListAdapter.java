@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import com.dbulgakov.task2.R;
 import com.dbulgakov.task2.model.pojo.UserOrder;
+import com.dbulgakov.task2.other.App;
 import com.dbulgakov.task2.presenter.BasePresenter;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -18,6 +19,8 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
 
     private final BasePresenter presenter;
     private List<UserOrder> userOrderList;
+    private DateFormat shortDate = new SimpleDateFormat("MM/dd/yyyy", Locale.getDefault());
+    private DateFormat fullDate = new SimpleDateFormat("MM/dd/yy HH:mm", Locale.getDefault());
 
     public OrderListAdapter(List<UserOrder> orderList, BasePresenter presenter) {
         this.presenter = presenter;
@@ -62,10 +65,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
     }
 
     private void setOrderInfoIntoTextViews(UserOrder userOrder, ViewHolder holder) {
-        DateFormat shortDate = new SimpleDateFormat("MM/dd/yyyy", Locale.getDefault());
-        DateFormat fullDate = new SimpleDateFormat("MM/dd/yy HH:mm", Locale.getDefault());
-
-        holder.orderDateTextView.setText(shortDate.format(userOrder.getOrderDate()));
+        holder.orderDateTextView.setText(getOrderDateString(userOrder));
         holder.tripDirectionTextView.setText(String.format("%s - %s", userOrder.getOrigin(), userOrder.getDestination()));
         holder.flightNumberTextView.setText(userOrder.getFlightNumber());
         holder.flightTakeoffTextView.setText(fullDate.format(userOrder.getDepartureAt()));
@@ -74,6 +74,13 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
         holder.flightStopNumberTextView.setText(String.format(Locale.getDefault(), "%d", userOrder.getStopNumber()));
     }
 
+    private String getOrderDateString(UserOrder userOrder) {
+        String orderDateString = shortDate.format(userOrder.getOrderDate());
+        if (userOrder.getIfUserCancel()) {
+            orderDateString = orderDateString.concat(App.getContext().getString(R.string.order_cancelled_substring));
+        }
+        return orderDateString;
+    }
 
     class ViewHolder extends RecyclerView.ViewHolder {
 

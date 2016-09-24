@@ -113,7 +113,7 @@ public class UserOrder implements Serializable{
         this.destination = destination;
     }
 
-    public boolean getUserCancel() {
+    public boolean getIfUserCancel() {
         return userCancel;
     }
 

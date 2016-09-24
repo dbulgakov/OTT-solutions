@@ -10,6 +10,6 @@ public class OtherOrdersPredicate extends BaseOrderPredicate {
 
     @Override
     public boolean apply(UserOrder userOrder) {
-        return userOrder.getArrivalAt().before(getCurrentDate()) || userOrder.getUserCancel();
+        return userOrder.getArrivalAt().before(getCurrentDate()) || userOrder.getIfUserCancel();
     }
 }
