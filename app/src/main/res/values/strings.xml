@@ -4,5 +4,5 @@
     <string name="archive_orders_tab_name_string">Archive</string>
     <string name="error_no_internet_message">Check your internet connection!</string>
     <string name="error_unknown_error_message">Unknown error.</string>
-    <string name="order_cancelled_substring">" — canceled"</string>
+    <string name="order_cancelled_substring">" — cancelled"</string>
 </resources>
