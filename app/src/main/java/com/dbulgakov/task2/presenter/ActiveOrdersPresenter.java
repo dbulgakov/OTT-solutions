@@ -1,6 +1,7 @@
 package com.dbulgakov.task2.presenter;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import com.dbulgakov.task2.model.pojo.UserOrder;
 import com.dbulgakov.task2.other.App;
@@ -33,7 +34,7 @@ public class ActiveOrdersPresenter extends BasePresenter{
         Date today = new Date();
         Subscription subscription = model.getUserOrders()
                 .flatMap(Observable::from)
-                .filter(order -> order.getArrivalAt().after(today))
+                .filter(order -> order.getArrivalAt().after(today) && !order.getUserCancel())
                 .subscribe(new Observer<UserOrder>() {
                     @Override
                     public void onCompleted() {

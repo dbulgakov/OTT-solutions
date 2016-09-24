@@ -6,6 +6,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.*;
 import android.view.View;
 import android.widget.TextView;
@@ -84,10 +85,12 @@ public class ActiveOrdersFragment extends BaseFragment implements ActiveOrdersVi
 
     @Override
     public void showError(Throwable throwable) {
+        stopSwipeRefreshing();
         if (throwable instanceof UnknownHostException) {
             makeToast(getString(R.string.error_no_internet_message));
-        } else
+        } else {
             makeToast(getString(R.string.error_unknown_error_message));
+        }
     }
 
     private void makeToast(String text) {
