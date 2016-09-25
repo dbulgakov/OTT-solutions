@@ -19,8 +19,8 @@ public final class ApiModule {
 
     public static ApiInterface getApiInterface() {
 
-        File cacheDir = new File(App.getContext().getCacheDir(), UUID.randomUUID().toString());
-        Cache cache = new Cache(cacheDir, 1024);
+        File cacheDir = new File(App.getContext().getCacheDir(), "response");
+        Cache cache = new Cache(cacheDir, 4096);
         OkHttpClient okHttpClient = new OkHttpClient.Builder().cache(cache).build();
 
 
