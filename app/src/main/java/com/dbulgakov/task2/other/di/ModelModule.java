@@ -6,6 +6,7 @@ import com.dbulgakov.task2.other.Const;
 
 import javax.inject.Named;
 import javax.inject.Singleton;
+
 import dagger.Module;
 import dagger.Provides;
 import rx.Scheduler;
@@ -18,7 +19,7 @@ public class ModelModule {
     @Provides
     @Singleton
     ApiInterface provideApiInterface() {
-        return ApiModule.getApiInterface();
+        return ApiModule.getApiInterface(Const.BASE_URL);
     }
 
     @Provides

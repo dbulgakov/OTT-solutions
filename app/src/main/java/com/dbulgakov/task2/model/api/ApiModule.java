@@ -1,10 +1,8 @@
 package com.dbulgakov.task2.model.api;
 
-import com.dbulgakov.task2.model.api.ApiInterface;
 import com.dbulgakov.task2.other.App;
 
 import java.io.File;
-import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.Cache;
@@ -25,7 +23,7 @@ public final class ApiModule {
 
     }
 
-    public static ApiInterface getApiInterface() {
+    public static ApiInterface getApiInterface(String url) {
 
         File cacheDir = new File(App.getContext().getCacheDir(), "response");
         OkHttpClient okHttpClient = new OkHttpClient.Builder()
@@ -37,7 +35,7 @@ public final class ApiModule {
 
 
         Retrofit.Builder builder = new Retrofit.Builder().
-                baseUrl(com.dbulgakov.task2.other.Const.BASE_URL)
+                baseUrl(url)
                 .client(okHttpClient)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create());
