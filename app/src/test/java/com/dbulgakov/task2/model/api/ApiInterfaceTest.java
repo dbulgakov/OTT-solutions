@@ -47,7 +47,7 @@ public class ApiInterfaceTest extends BaseTest {
     }
 
     @Test
-    public void testGetRepositories() throws Exception {
+    public void testGetUserOrders() throws Exception {
 
         TestSubscriber<List<UserOrder>> testSubscriber = new TestSubscriber<>();
         apiInterface.getUserOrders().subscribe(testSubscriber);
