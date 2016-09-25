@@ -33,7 +33,7 @@ public class ApiInterfaceTest extends BaseTest {
             @Override
             public MockResponse dispatch(RecordedRequest request) throws InterruptedException {
 
-                if (request.getPath().equals("orders.json" )) {
+                if (request.getPath().equals("/orders.json" )) {
                     return new MockResponse().setResponseCode(200)
                             .setBody(testUtils.readString("json/orders"));
                 }
@@ -42,7 +42,7 @@ public class ApiInterfaceTest extends BaseTest {
         };
 
         server.setDispatcher(dispatcher);
-        HttpUrl baseUrl = server.url("");
+        HttpUrl baseUrl = server.url("/");
         apiInterface = ApiModule.getApiInterface(baseUrl.toString());
     }
 
