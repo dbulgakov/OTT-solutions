@@ -12,7 +12,7 @@ import org.robolectric.annotation.Config;
 @RunWith(RobolectricGradleTestRunner.class)
 @Config(application = TestApplication.class,
         constants = BuildConfig.class,
-        sdk = 24)
+        sdk = 21)
 @Ignore
 public class BaseTest {
 
