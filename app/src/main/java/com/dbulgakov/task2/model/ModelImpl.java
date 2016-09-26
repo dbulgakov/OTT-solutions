@@ -30,7 +30,7 @@ public class ModelImpl implements Model{
 
     public ModelImpl() {
         App.getComponent().inject(this);
-        schedulersTransformer = o -> o.subscribeOn(ioThread)
+        schedulersTransformer = o -> ((Observable) o).subscribeOn(ioThread)
                 .observeOn(uiThread);
     }
 
