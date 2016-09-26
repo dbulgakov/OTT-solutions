@@ -51,10 +51,7 @@ public class OrdersTestPresenter extends BaseTest{
 
     @Test
     public void testLoadActiveUserOrders() {
-        Bundle args = new Bundle();
-        args.putInt(Const.FRAGMENT_KEY, Const.FRAGMENT_ACTIVE);
-
-        ordersPresenter.onCreate(args);
+        ordersPresenter.onCreate(getArgs(Const.FRAGMENT_ACTIVE));
         ordersPresenter.getUserOrders();
         ordersPresenter.onStop();
 
@@ -63,17 +60,32 @@ public class OrdersTestPresenter extends BaseTest{
 
     @Test
     public void testLoadOtherUserOrders() {
-        Bundle args = new Bundle();
-        args.putInt(Const.FRAGMENT_KEY, Const.FRAGMENT_ARCHIVE);
-
-        ordersPresenter.onCreate(args);
+        ordersPresenter.onCreate(getArgs(Const.FRAGMENT_ARCHIVE));
         ordersPresenter.getUserOrders();
         ordersPresenter.onStop();
 
         verify(mockView).setOrderList(filterOrders(orderList, new OtherOrdersPredicate()));
     }
 
+    @Test
+    public void testOnError() {
+        Throwable throwable = new Throwable();
+        doAnswer(invocation -> Observable.error(throwable))
+                .when(model)
+                .getUserOrders(TestConst.TEST_USER_ID_WITH_ORDERS);
 
+        ordersPresenter.onCreate(getArgs(Const.FRAGMENT_ACTIVE));
+        ordersPresenter.getUserOrders();
+
+        verify(mockView).showError(throwable);
+    }
+
+
+    private Bundle getArgs(int value) {
+        Bundle args = new Bundle();
+        args.putInt(Const.FRAGMENT_KEY, value);
+        return args;
+    }
 
 
     @SuppressWarnings("unchecked")
