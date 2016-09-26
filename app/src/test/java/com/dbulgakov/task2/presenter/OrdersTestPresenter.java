@@ -116,17 +116,11 @@ public class OrdersTestPresenter extends BaseTest{
         }
     }
 
-    @Ignore
     @Test
     public void testOnSaveInstanceState() {
-        //Bundle bundle = new Bundle();
-        //List<UserOrder> a = new ArrayList<>(orderList);
-        //mockView.setOrderList(a);
-        //verify(mockView).setOrderList(a);
-        //assertEquals(8, mockView.getCurrentUserOrderList().size());
-
-        //ordersPresenter.onSaveInstanceState(bundle);
-        //assertEquals(8, getOrderListFromBundle(bundle).size());
+        Bundle bundle = Bundle.EMPTY;
+        ordersPresenter.onSaveInstanceState(bundle);
+        assertEquals(Bundle.EMPTY, bundle);
     }
 
     @SuppressWarnings("unchecked")
