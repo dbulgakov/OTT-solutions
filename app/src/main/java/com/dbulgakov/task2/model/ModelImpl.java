@@ -30,14 +30,14 @@ public class ModelImpl implements Model{
 
     public ModelImpl() {
         App.getComponent().inject(this);
-        schedulersTransformer = o -> ((Observable) o).subscribeOn(ioThread)
+        schedulersTransformer = o -> o.subscribeOn(ioThread)
                 .observeOn(uiThread);
     }
 
     @Override
-    public Observable<List<UserOrder>> getUserOrders() {
+    public Observable<List<UserOrder>> getUserOrders(int userId) {
         return apiInterface
-                .getUserOrders()
+                .getUserOrders(userId)
                 .compose(applySchedulers());
     }
 

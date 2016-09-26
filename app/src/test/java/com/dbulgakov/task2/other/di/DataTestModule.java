@@ -22,7 +22,7 @@ public class DataTestModule {
     @Provides
     @Singleton
     List<UserOrder> provideUserOrderList() {
-        UserOrder[] userOrderArray = testUtils.getGson().fromJson(testUtils.readString("json/orders"), UserOrder[].class);
+        UserOrder[] userOrderArray = testUtils.getGson().fromJson(testUtils.readString("json/jsonWithOrders"), UserOrder[].class);
         return Arrays.asList(userOrderArray);
     }
 }

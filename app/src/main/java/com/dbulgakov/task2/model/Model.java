@@ -7,5 +7,5 @@ import java.util.List;
 import rx.Observable;
 
 public interface Model {
-    Observable<List<UserOrder>> getUserOrders();
+    Observable<List<UserOrder>> getUserOrders(int userId);
 }

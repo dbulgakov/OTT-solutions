@@ -6,6 +6,7 @@ import com.dbulgakov.task2.model.Model;
 import com.dbulgakov.task2.model.pojo.UserOrder;
 import com.dbulgakov.task2.other.BaseTest;
 import com.dbulgakov.task2.other.Const;
+import com.dbulgakov.task2.other.TestConst;
 import com.dbulgakov.task2.predicate.ActiveOrderPredicate;
 import com.dbulgakov.task2.predicate.OtherOrdersPredicate;
 import com.dbulgakov.task2.view.fragments.OrdersView;
@@ -45,7 +46,7 @@ public class OrdersTestPresenter extends BaseTest{
 
         doAnswer(invocation -> Observable.just(orderList))
                 .when(model)
-                .getUserOrders();
+                .getUserOrders(TestConst.TEST_USER_ID_WITH_ORDERS);
     }
 
     @Test

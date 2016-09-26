@@ -25,6 +25,7 @@ public class OrdersPresenter extends BasePresenter{
 
     private OrdersView ordersView;
     private static final String SAVED_USER_ORDERS_KEY = "SAVED_USER_ORDERS_KEY";
+    private static final int USER_ID = 1;
     private Predicate<UserOrder> userOrderPredicate;
 
     @Inject
@@ -46,7 +47,7 @@ public class OrdersPresenter extends BasePresenter{
     }
 
     private void getUserOrdersFromBackend(){
-        Subscription subscription = model.getUserOrders()
+        Subscription subscription = model.getUserOrders(USER_ID)
                 .flatMap(Observable::from)
                 .filter(userOrderPredicate::apply)
                 .toSortedList((userOrder, userOrder2) -> userOrder.getDepartureAt().compareTo(userOrder2.getDepartureAt()))

@@ -3,6 +3,7 @@ package com.dbulgakov.task2.model;
 import com.dbulgakov.task2.model.api.ApiInterface;
 import com.dbulgakov.task2.model.pojo.UserOrder;
 import com.dbulgakov.task2.other.BaseTest;
+import com.dbulgakov.task2.other.TestConst;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -33,12 +34,12 @@ public class ModelImplTest extends BaseTest{
 
     @Test
     public void testGetUserOrders() {
-        UserOrder[] userOrders = testUtils.getGson().fromJson(testUtils.readString("json/orders"), UserOrder[].class);
+        UserOrder[] userOrders = testUtils.getGson().fromJson(testUtils.readString("json/jsonWithOrders"), UserOrder[].class);
 
-        when(apiInterface.getUserOrders()).thenReturn(Observable.just(Arrays.asList(userOrders)));
+        when(apiInterface.getUserOrders(TestConst.TEST_USER_ID_WITH_ORDERS)).thenReturn(Observable.just(Arrays.asList(userOrders)));
 
         TestSubscriber<List<UserOrder>> testSubscriber = new TestSubscriber<>();
-        model.getUserOrders().subscribe(testSubscriber);
+        model.getUserOrders(TestConst.TEST_USER_ID_WITH_ORDERS).subscribe(testSubscriber);
 
         testSubscriber.assertNoErrors();
         testSubscriber.assertValueCount(1);
