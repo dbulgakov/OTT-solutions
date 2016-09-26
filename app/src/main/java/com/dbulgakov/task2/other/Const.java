@@ -9,4 +9,5 @@ public interface Const {
     String FRAGMENT_KEY = "FRAGMENT_KEY";
     int FRAGMENT_ACTIVE = 1;
     int FRAGMENT_ARCHIVE = 0;
+    String SAVED_USER_ORDERS_KEY = "SAVED_USER_ORDERS_KEY";
 }

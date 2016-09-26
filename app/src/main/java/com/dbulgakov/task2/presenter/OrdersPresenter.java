@@ -24,7 +24,6 @@ import rx.Subscription;
 public class OrdersPresenter extends BasePresenter{
 
     private OrdersView ordersView;
-    private static final String SAVED_USER_ORDERS_KEY = "SAVED_USER_ORDERS_KEY";
     private static final int USER_ID = 1;
     private Predicate<UserOrder> userOrderPredicate;
 
@@ -75,7 +74,7 @@ public class OrdersPresenter extends BasePresenter{
     public void onSaveInstanceState(Bundle outState){
         List<UserOrder> userOrderList = ordersView.getCurrentUserOrderList();
         if (userOrderList != null && !userOrderList.isEmpty()) {
-            outState.putSerializable(SAVED_USER_ORDERS_KEY, new ArrayList<>(userOrderList));
+            outState.putSerializable(Const.SAVED_USER_ORDERS_KEY, new ArrayList<>(userOrderList));
         }
     }
 
@@ -83,7 +82,7 @@ public class OrdersPresenter extends BasePresenter{
         ordersView.startSwipeRefreshing();
         if (savedInstanceState != null) {
             @SuppressWarnings("unchecked")
-            List<UserOrder> userOrderList= (List<UserOrder>) savedInstanceState.getSerializable(SAVED_USER_ORDERS_KEY);
+            List<UserOrder> userOrderList= (List<UserOrder>) savedInstanceState.getSerializable(Const.SAVED_USER_ORDERS_KEY);
             ordersView.setOrderList(userOrderList);
         } else {
             ordersView.clearOrderList();
@@ -105,5 +104,9 @@ public class OrdersPresenter extends BasePresenter{
 
     public void getUserOrders() {
         getUserOrders(null);
+    }
+
+    public Predicate<UserOrder> getUserOrderPredicate() {
+        return userOrderPredicate;
     }
 }

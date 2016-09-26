@@ -13,16 +13,25 @@ import com.dbulgakov.task2.view.fragments.OrdersView;
 import com.google.common.base.Predicate;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
+import org.mockito.ArgumentCaptor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
 
 import rx.Observable;
+import rx.Subscription;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 import static org.mockito.Mockito.doAnswer;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.spy;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 public class OrdersTestPresenter extends BaseTest{
@@ -50,7 +59,7 @@ public class OrdersTestPresenter extends BaseTest{
     }
 
     @Test
-    public void testLoadActiveUserOrders() {
+    public void testGetActiveUserOrders() {
         ordersPresenter.onCreate(getArgs(Const.FRAGMENT_ACTIVE));
         ordersPresenter.getUserOrders();
         ordersPresenter.onStop();
@@ -59,12 +68,19 @@ public class OrdersTestPresenter extends BaseTest{
     }
 
     @Test
-    public void testLoadOtherUserOrders() {
+    public void testGetOtherUserOrders() {
         ordersPresenter.onCreate(getArgs(Const.FRAGMENT_ARCHIVE));
         ordersPresenter.getUserOrders();
         ordersPresenter.onStop();
 
         verify(mockView).setOrderList(filterOrders(orderList, new OtherOrdersPredicate()));
+    }
+
+    @Test
+    public void testGetUserOrdersFromBundle() {
+        ordersPresenter.getUserOrders(putOrderListIntoBundle(orderList));
+
+        verify(mockView).setOrderList(new ArrayList<>(orderList));
     }
 
     @Test
@@ -78,6 +94,51 @@ public class OrdersTestPresenter extends BaseTest{
         ordersPresenter.getUserOrders();
 
         verify(mockView).showError(throwable);
+    }
+
+    @Test
+    public void testOnCreate() {
+        ordersPresenter.onCreate(getArgs(Const.FRAGMENT_ACTIVE));
+        assertEquals(true, ordersPresenter.getUserOrderPredicate() instanceof ActiveOrderPredicate);
+
+        ordersPresenter.onCreate(getArgs(Const.FRAGMENT_ARCHIVE));
+        assertEquals(true, ordersPresenter.getUserOrderPredicate() instanceof OtherOrdersPredicate);
+    }
+
+    @Test
+    public void testOnCreateNullBundle() {
+        try
+        {
+            ordersPresenter.onCreate(null);
+            fail();
+        } catch (IllegalStateException expected) {
+            assertEquals("Fragment type needs to be passed!", expected.getMessage());
+        }
+    }
+
+    @Ignore
+    @Test
+    public void testOnSaveInstanceState() {
+        //Bundle bundle = new Bundle();
+        //List<UserOrder> a = new ArrayList<>(orderList);
+        //mockView.setOrderList(a);
+        //verify(mockView).setOrderList(a);
+        //assertEquals(8, mockView.getCurrentUserOrderList().size());
+
+        //ordersPresenter.onSaveInstanceState(bundle);
+        //assertEquals(8, getOrderListFromBundle(bundle).size());
+    }
+
+    @SuppressWarnings("unchecked")
+    private List<UserOrder> getOrderListFromBundle(Bundle bundle) {
+        return (List<UserOrder>) bundle.getSerializable(Const.SAVED_USER_ORDERS_KEY);
+    }
+
+    private Bundle putOrderListIntoBundle(List<UserOrder> orders) {
+        Bundle bundle = new Bundle();
+        ArrayList<UserOrder> userOrderArrayList = new ArrayList<>(orders);
+        bundle.putSerializable(Const.SAVED_USER_ORDERS_KEY, userOrderArrayList);
+        return bundle;
     }
 
 
