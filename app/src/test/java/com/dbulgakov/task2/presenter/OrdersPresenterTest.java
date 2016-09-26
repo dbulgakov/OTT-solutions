@@ -13,9 +13,7 @@ import com.dbulgakov.task2.view.fragments.OrdersView;
 import com.google.common.base.Predicate;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
-import org.mockito.ArgumentCaptor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +21,6 @@ import java.util.List;
 import javax.inject.Inject;
 
 import rx.Observable;
-import rx.Subscription;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -31,10 +28,9 @@ import static org.junit.Assert.fail;
 import static org.mockito.Mockito.doAnswer;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.spy;
-import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
-public class OrdersTestPresenter extends BaseTest{
+public class OrdersPresenterTest extends BaseTest{
     @Inject
     protected Model model;
 
@@ -60,7 +56,7 @@ public class OrdersTestPresenter extends BaseTest{
 
     @Test
     public void testGetActiveUserOrders() {
-        ordersPresenter.onCreate(getArgs(Const.FRAGMENT_ACTIVE));
+        ordersPresenter.onCreate(getArgsBundle(Const.FRAGMENT_ACTIVE));
         ordersPresenter.getUserOrders();
         ordersPresenter.onStop();
 
@@ -69,7 +65,7 @@ public class OrdersTestPresenter extends BaseTest{
 
     @Test
     public void testGetOtherUserOrders() {
-        ordersPresenter.onCreate(getArgs(Const.FRAGMENT_ARCHIVE));
+        ordersPresenter.onCreate(getArgsBundle(Const.FRAGMENT_ARCHIVE));
         ordersPresenter.getUserOrders();
         ordersPresenter.onStop();
 
@@ -90,7 +86,7 @@ public class OrdersTestPresenter extends BaseTest{
                 .when(model)
                 .getUserOrders(TestConst.TEST_USER_ID_WITH_ORDERS);
 
-        ordersPresenter.onCreate(getArgs(Const.FRAGMENT_ACTIVE));
+        ordersPresenter.onCreate(getArgsBundle(Const.FRAGMENT_ACTIVE));
         ordersPresenter.getUserOrders();
 
         verify(mockView).showError(throwable);
@@ -98,10 +94,10 @@ public class OrdersTestPresenter extends BaseTest{
 
     @Test
     public void testOnCreate() {
-        ordersPresenter.onCreate(getArgs(Const.FRAGMENT_ACTIVE));
+        ordersPresenter.onCreate(getArgsBundle(Const.FRAGMENT_ACTIVE));
         assertEquals(true, ordersPresenter.getUserOrderPredicate() instanceof ActiveOrderPredicate);
 
-        ordersPresenter.onCreate(getArgs(Const.FRAGMENT_ARCHIVE));
+        ordersPresenter.onCreate(getArgsBundle(Const.FRAGMENT_ARCHIVE));
         assertEquals(true, ordersPresenter.getUserOrderPredicate() instanceof OtherOrdersPredicate);
     }
 
@@ -136,7 +132,7 @@ public class OrdersTestPresenter extends BaseTest{
     }
 
 
-    private Bundle getArgs(int value) {
+    private Bundle getArgsBundle(int value) {
         Bundle args = new Bundle();
         args.putInt(Const.FRAGMENT_KEY, value);
         return args;

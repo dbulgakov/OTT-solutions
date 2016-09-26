@@ -135,4 +135,8 @@ public class OrdersFragment extends BaseFragment implements OrdersView, SwipeRef
     public void onRefresh() {
         presenter.getUserOrders();
     }
+
+    public void setViewComponent(ViewComponent viewComponent) {
+        this.viewComponent = viewComponent;
+    }
 }
