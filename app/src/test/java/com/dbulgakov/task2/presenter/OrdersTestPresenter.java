@@ -58,7 +58,7 @@ public class OrdersTestPresenter extends BaseTest{
         ordersPresenter.getUserOrders();
         ordersPresenter.onStop();
 
-        verify(mockView).setOrderList(filterActive(orderList, new ActiveOrderPredicate()));
+        verify(mockView).setOrderList(filterOrders(orderList, new ActiveOrderPredicate()));
     }
 
     @Test
@@ -70,14 +70,14 @@ public class OrdersTestPresenter extends BaseTest{
         ordersPresenter.getUserOrders();
         ordersPresenter.onStop();
 
-        verify(mockView).setOrderList(filterActive(orderList, new OtherOrdersPredicate()));
+        verify(mockView).setOrderList(filterOrders(orderList, new OtherOrdersPredicate()));
     }
 
 
 
 
     @SuppressWarnings("unchecked")
-    private List<UserOrder> filterActive(List<UserOrder> userOrders, Predicate<UserOrder> userOrderPredicate){
+    private List<UserOrder> filterOrders(List<UserOrder> userOrders, Predicate<UserOrder> userOrderPredicate){
         return Observable.just(userOrders)
                 .flatMap(Observable::from)
                 .filter(userOrderPredicate::apply)
