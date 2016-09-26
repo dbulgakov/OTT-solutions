@@ -6,8 +6,9 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.*;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.dbulgakov.task2.R;
 import com.dbulgakov.task2.model.pojo.UserOrder;
@@ -119,7 +120,7 @@ public class OrdersFragment extends BaseFragment implements OrdersView, SwipeRef
         orderListAdapter = new OrderListAdapter(new ArrayList<>());
         ordersRecyclerView.setAdapter(orderListAdapter);
 
-        presenter.getActiveOrders(savedInstanceState);
+        presenter.getUserOrders(savedInstanceState);
         swipeRefreshLayout.setOnRefreshListener(this);
         return view;
     }
@@ -132,6 +133,6 @@ public class OrdersFragment extends BaseFragment implements OrdersView, SwipeRef
 
     @Override
     public void onRefresh() {
-        presenter.getActiveOrders();
+        presenter.getUserOrders();
     }
 }

@@ -3,14 +3,15 @@ package com.dbulgakov.task2.presenter;
 import android.os.Bundle;
 
 import com.dbulgakov.task2.model.pojo.UserOrder;
+import com.dbulgakov.task2.other.App;
 import com.dbulgakov.task2.other.Const;
 import com.dbulgakov.task2.predicate.ActiveOrderPredicate;
-import com.dbulgakov.task2.other.App;
 import com.dbulgakov.task2.predicate.OtherOrdersPredicate;
 import com.dbulgakov.task2.view.fragments.OrdersView;
+import com.google.common.base.Predicate;
+
 import java.util.ArrayList;
 import java.util.List;
-import com.google.common.base.Predicate;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -44,10 +45,10 @@ public class OrdersPresenter extends BasePresenter{
         this.ordersView = ordersView;
     }
 
-    private void getActiveOrdersFromBackend(){
+    private void getUserOrdersFromBackend(){
         Subscription subscription = model.getUserOrders()
                 .flatMap(Observable::from)
-                .filter(order -> userOrderPredicate.apply(order))
+                .filter(userOrderPredicate::apply)
                 .toSortedList((userOrder, userOrder2) -> userOrder.getDepartureAt().compareTo(userOrder2.getDepartureAt()))
                 .subscribeOn(ioThread)
                 .observeOn(uiThread)
@@ -77,7 +78,7 @@ public class OrdersPresenter extends BasePresenter{
         }
     }
 
-    public void getActiveOrders(Bundle savedInstanceState) {
+    public void getUserOrders(Bundle savedInstanceState) {
         ordersView.startSwipeRefreshing();
         if (savedInstanceState != null) {
             @SuppressWarnings("unchecked")
@@ -85,7 +86,7 @@ public class OrdersPresenter extends BasePresenter{
             ordersView.setOrderList(userOrderList);
         } else {
             ordersView.clearOrderList();
-            getActiveOrdersFromBackend();
+            getUserOrdersFromBackend();
         }
     }
 
@@ -101,7 +102,7 @@ public class OrdersPresenter extends BasePresenter{
         }
     }
 
-    public void getActiveOrders() {
-        getActiveOrders(null);
+    public void getUserOrders() {
+        getUserOrders(null);
     }
 }
