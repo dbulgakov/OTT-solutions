@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="MatchParentViewGroup">
+        <attr name="android:layout_margin" />
+    </declare-styleable>
+
+    <declare-styleable name="EntityCounterView">
+        <attr name="android:layout_gravity" />
+        <attr name="android:layout_margin" />
+        <attr name="min_value" format="integer" />
+        <attr name="max_value" format="integer" />
+        <attr name="start_value" format="integer" />
+        <attr name="description_string" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="FlipNumberView">
+        <attr name="android:layout_margin" />
+    </declare-styleable>
+</resources>

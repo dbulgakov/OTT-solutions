@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="minimum_screen_width_for_dialog_fragment">420</integer>
+</resources>

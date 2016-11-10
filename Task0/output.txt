@@ -1,0 +1,11 @@
+Output looks this like. (case insensitive) Hope I understand the task correctly. Symbols, stored in hashmap, are case sensitive, but output looks ugly.
+o - (9998, 70);
+n - (6930, 76);
+e - (3418, 40);
+t - (1686, 6);
+w - (3460, 55);
+o - (22, 31);
+t - (9612, 40);
+r - (1677, 54);
+i - (1695, 66);
+p - (1704, 14);

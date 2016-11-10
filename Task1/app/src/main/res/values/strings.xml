@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">OTT TASK</string>
+    <string name="guest_fragment_adult_type_string">Взрослых</string>
+    <string name="guest_fragment_teen_type_string">Подростков</string>
+    <string name="guest_fragment_children_type_string">Детей</string>
+    <string name="hello_string">hello!</string>
+    <string name="saved_guest_count_id">guest_count_key</string>
+</resources>

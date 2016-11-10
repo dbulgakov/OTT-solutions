@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">HotelGuestCounterView</string>
+    <string name="default_guest_type_string">Adult</string>
+</resources>

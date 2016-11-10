@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/bulgakov/Documents/ott_test/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="7834c1b227f18ccce849a333be40eb8f6b147a9c">
+        <dex dex="/Users/bulgakov/Documents/ott_test/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_a9130397e8256903a73cd42edc037ab57ded26d5/classes.dex" />
+    </item>
+    <item
+        jar="/Users/bulgakov/Documents/ott_test/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="/Users/bulgakov/Documents/ott_test/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-24.2.1_0592caff01df9d3b6bf6d4f685828b966e0000e3/classes.dex" />
+    </item>
+    <item
+        jar="/Users/bulgakov/Documents/ott_test/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="/Users/bulgakov/Documents/ott_test/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_e52e64dea4cd194f40a83f08e292b132af4a7713/classes.dex" />
+    </item>
+    <item
+        jar="/Users/bulgakov/Documents/ott_test/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
+        <dex dex="/Users/bulgakov/Documents/ott_test/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-24.2.1_efcde0474a2dc042b45fbb6b41a84df4ddcf0b93/classes.dex" />
+    </item>
+    <item
+        jar="/Users/bulgakov/Documents/ott_test/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="/Users/bulgakov/Documents/ott_test/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_548e742c216e33151a0466cca4a608f1b5b768dc/classes.dex" />
+    </item>
+    <item
+        jar="/Users/bulgakov/Documents/ott_test/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="/Users/bulgakov/Documents/ott_test/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_64cf96f001bcf37634b84471cc5d1365fce66155/classes.dex" />
+    </item>
+    <item
+        jar="/Users/bulgakov/Documents/ott_test/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="/Users/bulgakov/Documents/ott_test/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-24.2.1_9b0d3e910f3eb3069edf106d14dded7eef07ef9e/classes.dex" />
+    </item>
+    <item
+        jar="/Users/bulgakov/Documents/ott_test/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="/Users/bulgakov/Documents/ott_test/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_1bcc7b8316b1ada2d06a4e80d62a31db517a51c6/classes.dex" />
+    </item>
+    <item
+        jar="/Users/bulgakov/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/24.2.1/support-annotations-24.2.1.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
+        <dex dex="/Users/bulgakov/Documents/ott_test/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-24.2.1_69f424f742e4d004ee2d02202dedd49445eef539/classes.dex" />
+    </item>
+    <item
+        jar="/Users/bulgakov/Documents/ott_test/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="/Users/bulgakov/Documents/ott_test/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-24.2.1_3c8c5736e95087bfd4d01b59cdab70bdb27ed924/classes.dex" />
+    </item>
+    <item
+        jar="/Users/bulgakov/Documents/ott_test/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="/Users/bulgakov/Documents/ott_test/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-24.2.1_4f3935bdf158a1d507b416c8c001a986ba5bb7b7/classes.dex" />
+    </item>
+    <item
+        jar="/Users/bulgakov/Documents/ott_test/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="10c0b7e4d54f99da220c01aa658a3b569a973926">
+        <dex dex="/Users/bulgakov/Documents/ott_test/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_1eb443da492c5edfdebbe6b5be9d0e58d7bb0701/classes.dex" />
+    </item>
+    <item
+        jar="/Users/bulgakov/Documents/ott_test/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/bulgakov/Documents/ott_test/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-24.2.1_0900ca2745319f26a523715e97b0c8e3989682f8/classes.dex" />
+    </item>
+    <item
+        jar="/Users/bulgakov/Documents/ott_test/app/build/intermediates/exploded-aar/com.android.support/design/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
+        <dex dex="/Users/bulgakov/Documents/ott_test/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-24.2.1_ce34b0bf8ff48e8e901d122240410a97436baaf5/classes.dex" />
+    </item>
+    <item
+        jar="/Users/bulgakov/Documents/ott_test/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="/Users/bulgakov/Documents/ott_test/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-24.2.1_4efe13f7d6dd5a31639c9d0e5238c0be91c5932c/classes.dex" />
+    </item>
+    <item
+        jar="/Users/bulgakov/Documents/ott_test/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="/Users/bulgakov/Documents/ott_test/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-24.2.1_7f8ac2a3608ab10599843dc6e16ba3769b5831c2/classes.dex" />
+    </item>
+    <item
+        jar="/Users/bulgakov/Documents/ott_test/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="/Users/bulgakov/Documents/ott_test/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_66bae9663a0260dfd36e17de690e29e8c4fcc6e1/classes.dex" />
+    </item>
+    <item
+        jar="/Users/bulgakov/Documents/ott_test/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="/Users/bulgakov/Documents/ott_test/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-24.2.1_b960dc0e70e816e5c5501944a7f319099665f698/classes.dex" />
+    </item>
+    <item
+        jar="/Users/bulgakov/Documents/ott_test/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="/Users/bulgakov/Documents/ott_test/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-24.2.1_592529dae1db681fe40db6bd1badb885a0c90fdd/classes.dex" />
+    </item>
+
+</items>

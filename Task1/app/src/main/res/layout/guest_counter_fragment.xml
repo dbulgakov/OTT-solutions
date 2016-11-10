@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/guest_fragment_horizontal_margin"
+    android:paddingRight="@dimen/guest_fragment_horizontal_margin"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minHeight="@dimen/guest_fragment_minimum_height"
+    android:minWidth="@dimen/guest_fragment_minimum_width">
+
+    <com.dbulgakov.entitycounterview.EntityCounterView
+        android:id="@+id/hotel_guest_adults_counter"
+        android:paddingLeft="@dimen/guest_fragment_horizontal_margin"
+        android:paddingRight="@dimen/guest_fragment_horizontal_margin"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/guest_fragment_first_element_top_margin"
+        app:min_value="1"
+        app:start_value="2"
+        app:max_value="4"
+        app:description_string="@string/guest_fragment_adult_type_string"
+        android:layout_height="@dimen/default_element_side" />
+
+    <com.dbulgakov.entitycounterview.EntityCounterView
+        android:id="@+id/hotel_guest_teens_counter"
+        android:paddingLeft="@dimen/guest_fragment_horizontal_margin"
+        android:paddingRight="@dimen/guest_fragment_horizontal_margin"
+        android:layout_marginTop="@dimen/guest_fragment_element_top_margin"
+        android:layout_width="match_parent"
+        app:min_value="0"
+        app:start_value="0"
+        app:max_value="2"
+        app:description_string="@string/guest_fragment_teen_type_string"
+        android:layout_height="@dimen/default_element_side" />
+
+    <com.dbulgakov.entitycounterview.EntityCounterView
+        android:id="@+id/hotel_guest_children_counter"
+        android:paddingLeft="@dimen/guest_fragment_horizontal_margin"
+        android:paddingRight="@dimen/guest_fragment_horizontal_margin"
+        android:layout_marginTop="@dimen/guest_fragment_element_top_margin"
+        android:layout_width="match_parent"
+        app:min_value="0"
+        app:start_value="0"
+        app:max_value="2"
+        app:description_string="@string/guest_fragment_children_type_string"
+        android:layout_height="@dimen/default_element_side" />
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/close_guest_counter_fragment_button"
+        android:layout_gravity="center"
+        android:layout_width="@dimen/guest_fragment_submit_button_width"
+        android:layout_height="@dimen/guest_fragment_submit_button_height"
+        android:layout_marginTop="@dimen/guest_fragment_submit_button_height"
+        android:background="@android:color/holo_blue_light"
+        android:textAllCaps="true"
+        android:textSize="@dimen/normal_text_size"
+        android:textColor="@android:color/white"
+        android:text="@android:string/ok"/>
+</LinearLayout>

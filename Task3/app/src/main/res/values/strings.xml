@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Grouping hotels app</string>
+    <string name="get_hotel_groups_string">Get hotel groups</string>
+    <string name="error_no_internet_message_string">Check your internet connection!</string>
+    <string name="error_unknown_message_string">Unknown error!</string>
+    <string name="dialog_price_ranges_string">Prices</string>
+    <string name="dialog_error_message_title_string">Oops!</string>
+    <string name="dialog_no_hotels_found_message_string">No hotels were found</string>
+    <string name="clear_string">clear</string>
+    <string name="close_string">close</string>
+</resources>
